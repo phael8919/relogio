@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .relogio{
+            height: 120px;
+            background-color: rgb(64, 64, 165);
+            color: aliceblue;
+        }
+        p{
+            font-size: 50px;
+            text-align: center;
+            padding: 20px 0px 20px 0px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="rel" class="relogio"></div>
+
+    <script>
+        function relogio(){
+            let data = new Date()
+            let hour = data.getHours()
+            let min = data.getMinutes()
+            let sec = data.getSeconds()
+
+            if (hour < 10){
+                hour = "0"+hour
+            }
+            if(min  <  10){
+                min  = "0"+min
+            }
+            if(sec < 10){
+                sec = "0"+sec
+            }
+
+            let horas = hour + ":" + min + ":" + sec
+
+            let div = document.getElementById('rel')
+            div.innerHTML = "<p>"+horas+"</p>"
+        }
+        
+        let timer = setInterval(relogio, 1000)
+
+    </script>
+</body>
+</html>
